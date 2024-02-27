@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <p class="mt-3">Overview content</p>
+    <p class="mt-3 text-center">Overview content</p>
     <div class="d-flex flex-wrap justify-content-around">
         @foreach ($index as $item)
             <div class="card mt-2 ms-2">
