@@ -13,8 +13,8 @@ Route::get('overview', function(){
     $index=[
         [
             'id'=>"Defective ratio",
-            'data'=>0.24,
-            'last'=>0.12
+            'data'=>0.00,
+            'last'=>0.24
         ],
         [
             'id'=>"Output Qty",
@@ -23,13 +23,13 @@ Route::get('overview', function(){
         ],
         [
             'id'=>"NC ratio",
-            'data'=>0.24,
+            'data'=>0.54,
             'last'=>0.12
         ],
         [
             'id'=>"Reject ratio",
-            'data'=>0.24,
-            'last'=>0.12
+            'data'=>0.04,
+            'last'=>0.00
         ],
     ];
     return view('overview',compact('index'));
