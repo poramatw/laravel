@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('title')
-    Chart
-@endsection
+@section('title', 'Chart')
 
 @section('content')
     <p class="mt-3 text-center">chart content</p>

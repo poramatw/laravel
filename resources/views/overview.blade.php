@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('title')
-    Overview
-@endsection
+@section('title', 'Overview')
 
 @section('content')
     <p class="mt-3 text-center">Overview content</p>
