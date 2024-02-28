@@ -39,12 +39,43 @@
             </tr>
             @foreach ($data as $i)
                 <tr>
-                    <th><a href="#" onclick="showModal(); return false;">{{ $i['index'] }}</a></th>
-                    <td><label>{{ $i['total'] }}</label> <span class="fs-6"> </span></td>
-                    <td><label>{{ $i['week1'] }}</label> <span class="fs-6"> </span></td>
-                    <td><label>{{ $i['week2'] }}</label> <span class="fs-6"> </span></td>
-                    <td><label>{{ $i['week3'] }}</label> <span class="fs-6"> </span></td>
-                    <td><label>{{ $i['week4'] }}</label> <span class="fs-6"> </span></td>
+                    <th>{{ $i['index'] }}</th>
+                    <td><label>
+                            @if (strlen($i['total']) > 4)
+                                {{ number_format($i['total'], 0, '.', ',') }}
+                            @else
+                                {{ number_format($i['total'], 2, '.', '') }} %
+                            @endif
+                        </label> <span class="fs-6"> </span>
+                    </td>
+                    <td><label>
+                            @if (strlen($i['week1']) > 4)
+                                {{ number_format($i['week1'], 0, '.', ',') }}
+                            @else
+                                {{ number_format($i['week1'], 2, '.', '') }} %
+                            @endif
+                        </label> <span class="fs-6"> </span></td>
+                    <td><label>
+                            @if (strlen($i['week2']) > 4)
+                                {{ number_format($i['week2'], 0, '.', ',') }}
+                            @else
+                                {{ number_format($i['week2'], 2, '.', '') }} %
+                            @endif
+                        </label> <span class="fs-6"> </span></td>
+                    <td><label>
+                            @if (strlen($i['week3']) > 4)
+                                {{ number_format($i['week3'], 0, '.', ',') }}
+                            @else
+                                {{ number_format($i['week3'], 2, '.', '') }} %
+                            @endif
+                        </label> <span class="fs-6"> </span></td>
+                    <td><label>
+                            @if (strlen($i['week4']) > 4)
+                                {{ number_format($i['week4'], 0, '.', ',') }}
+                            @else
+                                {{ number_format($i['week4'], 2, '.', '') }} %
+                            @endif
+                        </label> <span class="fs-6"> </span></td>
                 </tr>
             @endforeach
             </tr>
