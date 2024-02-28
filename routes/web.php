@@ -1,42 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 
-Route::get('/', function () {
-    $name = "KPI";
-    $date = "27 FEB 2024";
-    return view('welcome',compact('name','date'));
-});
+Route::get('/', [AdminController::class, 'index']);
 
-Route::get('overview', function(){
-    $index=[
-        [
-            'id'=>"Defective ratio",
-            'data'=>0.00,
-            'last'=>0.24
-        ],
-        [
-            'id'=>"Output Qty",
-            'data'=>56005210,
-            'last'=>6005210
-        ],
-        [
-            'id'=>"NC ratio",
-            'data'=>0.54,
-            'last'=>0.12
-        ],
-        [
-            'id'=>"Reject ratio",
-            'data'=>0.04,
-            'last'=>0.00
-        ],
-    ];
-    return view('overview',compact('index'));
-});
+Route::get('overview', [AdminController::class, 'overview'])->name('overview');
+
+Route::get('chart', [AdminController::class, 'chart'])->name('chart');
 
 Route::get('welcome/{name}', function ($name) {
-    return "welcome {$name} <a href='".route('welcome')."'>click!</a>";
+    return "welcome {$name} <a href='" . route('welcome') . "'>click!</a>";
 });
 
 Route::get('welcome/test/okay', function () {
@@ -44,8 +19,6 @@ Route::get('welcome/test/okay', function () {
 })->name('welcome');
 
 // fallback function return homepage
-Route::fallback(function(){
+Route::fallback(function () {
     return view('welcome');
 });
-
-
