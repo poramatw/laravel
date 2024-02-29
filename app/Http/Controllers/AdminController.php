@@ -94,6 +94,97 @@ class AdminController extends Controller
             ],
             
         ];
+
         return view('chart', compact('indexVal', 'data'));
+    }
+
+    function form(){
+        $process = [
+            ['product' => "Plastic Injection"],
+            ['product' => "Metal Plate"],
+            ['product' => "Terminal"],
+            ['product' => "LLHP"],
+            ['product' => "Rotor"],
+            ['product' => "Cutting Blade"],
+            ['product' => "Part Making"],
+        ];
+
+        $index = [
+            ['ind' => "Sale amount budget"],
+            ['ind' => "Sale amount revised"],
+            ['ind' => "Output"],
+            ['ind' => "Defective"],
+            ['ind' => "NC"],
+            ['ind' => "Reject"],
+            ['ind' => "Customer complaint"],
+            ['ind' => "COPQ"],
+        ];
+        return view('form', compact('process', 'index'));
+    }
+
+    function insert(Request $req){
+        $req-> validate([
+            'product'=>'required',
+            'w1'=>'required',
+            'w2'=>'required',
+            'w3'=>'required',
+            'w4'=>'required',
+        ]);
+    }
+
+    function LajQuery(){
+        $data = [
+            [
+                'index' => "Sale amount",
+                'total' => 123456789,
+                'week1' => 56258,
+                'week2' => 56258,
+                'week3' => 56258,
+                'week4' => 56258,
+            ],
+            [
+                'index' => "Output",
+                'total' => 5678900,
+                'week1' => 51312,
+                'week2' => 23541,
+                'week3' => 158008,
+                'week4' => 980000,
+            ],
+            [
+                'index' => "Defective ratio",
+                'total' => 1.23,
+                'week1' => 1.23,
+                'week2' => 1.23,
+                'week3' => 1.23,
+                'week4' => 1.23,
+            ],
+            [
+                'index' => "NC",
+                'total' => 0.00,
+                'week1' => 0.00,
+                'week2' => 0.00,
+                'week3' => 0.00,
+                'week4' => 0.00,
+            ],
+            [
+                'index' => "Reject",
+                'total' => 1.23,
+                'week1' => 0.24,
+                'week2' => 0.00,
+                'week3' => 0.98,
+                'week4' => 0.00,
+            ],
+            [
+                'index' => "Complaint",
+                'total' => 0,
+                'week1' => 0,
+                'week2' => 0,
+                'week3' => 0,
+                'week4' => 0,
+            ],
+            
+        ];
+
+        return response()->json($data);
     }
 }
